@@ -128,7 +128,7 @@ footer::before {
   height: 15px;
   top: -1px;
   left: 0;
-  background-image: url(../../images/overlay-top.png);
+  background-image: url(../images/overlay-top.png);
   z-index: 1;
 }
 footer .row {
@@ -227,7 +227,7 @@ footer .copy-right p {
   height: 15px;
   bottom: -1px;
   left: 0;
-  background-image: url(../../images/overlay-bottom.png);
+  background-image: url(../images/overlay-bottom.png);
   z-index: 1;
 }
 
@@ -308,7 +308,7 @@ footer .copy-right p {
   height: 15px;
   top: -1px;
   left: 0;
-  background-image: url(../../images/overlay-top.png);
+  background-image: url(../images/overlay-top.png);
   z-index: 1;
 }
 .offer::after {
@@ -318,7 +318,7 @@ footer .copy-right p {
   height: 15px;
   bottom: -1px;
   left: 0;
-  background-image: url(../../images/overlay-bottom.png);
+  background-image: url(../images/overlay-bottom.png);
   z-index: 1;
 }
 
@@ -378,7 +378,7 @@ footer .copy-right p {
   height: 15px;
   top: -1px;
   left: 0;
-  background-image: url(../../images/overlay-top.png);
+  background-image: url(../images/overlay-top.png);
   z-index: 1;
 }
 #book::after {
@@ -388,7 +388,7 @@ footer .copy-right p {
   height: 15px;
   bottom: -1px;
   left: 0;
-  background-image: url(../../images/overlay-bottom.png);
+  background-image: url(../images/overlay-bottom.png);
   z-index: 1;
 }
 @media (max-width: 567px) {
