@@ -1,0 +1,181 @@
+@use "./mixins.scss" as *;
+
+//Start Variables 
+$main-color: #DA9F5B;
+$alt-color: #33211D;
+$section-padding: 210px;
+
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+    background-color: #FFFBF2;
+    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Roboto", sans-serif !important;
+}
+
+.row {
+    @include breakpoints(xsmall-mobile) {
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+//Section Title 
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+
+    h4 {
+        color: $main-color;
+        letter-spacing: 5px;
+    }
+
+    &::before {
+        content: "";
+        width: 2px;
+        height: 100px;
+        position: absolute;
+        top: -75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $main-color;
+    }
+
+    h1 {
+        color: $alt-color;
+    }
+}
+
+/* End Global Rules */
+
+/* Start Nav */
+nav {
+    @include breakpoints(mobile){
+        background-color: $alt-color !important;
+    }
+    @include breakpoints(small) {
+        background-color: $alt-color !important;
+    }
+    a {
+        color: #fff !important;
+    }
+    .navbar-toggler {
+        border: none;
+        @media small {
+            
+        }
+        box-shadow: 0px 0px 0px 1px $alt-color !important;
+    }
+    ul {
+        @include breakpoints(small) {
+            background-color: $alt-color;
+            opacity: .7;
+            padding: 10px !important;
+        }
+        @include breakpoints(mobile) {
+            background-color: $alt-color;
+            opacity: .7;
+            padding: 10px !important;
+        }
+        a:hover {
+            color: $main-color !important;
+        }
+    }
+    .active {
+        color: $main-color !important;
+    }
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+}
+/* Start Nav */
+
+/* Start Footer */
+footer {
+    margin-top: 100px;
+    background-image:
+        linear-gradient(rgba(51, 33, 29, 0.9), rgba(51, 33, 29, 0.9)), url(../images/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    position: relative;
+
+    &::before {
+        @include overlay(top);
+    }
+
+    .row {
+        padding: 100px 30px 50px;
+        margin: 0;
+
+        h4 {
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: .9rem;
+
+            i {
+                margin-right: .5rem;
+            }
+        }
+    }
+
+    .copy-right {
+        p {
+            margin: 0;
+            padding: 20px 0;
+        }
+    }
+}
+/* End Footer */
+
+
+/* Start Back To Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: -100%;
+    z-index: 100;
+    transition: 0.5s;
+    &.show {
+        right: 22px;
+    }
+}
+/* End Back To Top Button */

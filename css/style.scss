@@ -1,0 +1,283 @@
+@use "./helpers/mixins" as *;
+@use "./helpers/layout" as *;
+
+//Start Header
+.landing{
+    height: 100vh;
+    position: relative;
+    .carousel-item {
+        img{
+            height: 100vh;
+        }
+        .carousel-caption {
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: rgba(51, 33, 29, 0.7) !important;
+            z-index: 1 !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 !important;
+            font-weight: bold !important;
+            h2:first-child {
+                color: $main-color;
+            }
+            h1 {
+                font-size: 8rem !important;
+                @include breakpoints(mobile) {
+                    font-size: 5rem !important;
+                }
+                @include breakpoints(xsmall-mobile) {
+                    font-size: 4rem !important;
+                }
+                @include breakpoints(xxsmall-mobile) {
+                    font-size: 3rem !important;
+                }
+                &.lg-cap {
+                    font-size: 5rem !important;
+                    @include breakpoints(mobile) {
+                        font-size: 2.5rem !important;
+                    }
+                    @include breakpoints(xsmall-mobile) {
+                        font-size: 2rem !important;
+                    }
+                    // @include breakpoints(xxsmall-mobile) {
+                    //     font-size: 3rem !important;
+                    // }
+
+                }
+                max-width: 100%;
+            }
+        }
+    }
+    &::after {
+        @include overlay(bottom);
+    }
+}
+/* Start About*/
+#about {
+    padding-top: $section-padding;
+}
+/* End About*/
+
+/* Start Services*/
+#services {
+    padding-top: $section-padding;
+    .row {
+        max-width: 100%;
+    }
+    img {
+        width: 190px;
+        @include breakpoints(xsmall-mobile) {
+            border-radius: 4px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+    h4 {
+        @include breakpoints(medium) {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        @include breakpoints(xxsmall-mobile) {
+            font-size: 1rem;
+        }
+        @include breakpoints(mobile) {
+            font-size: 1.2rem;
+        }
+        
+    }
+    i {
+        margin-right: 1rem;
+        background-color: $main-color;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        @include breakpoints(medium) {
+            margin-right: .6rem !important;
+        }
+    }
+    p {
+        margin-bottom: 0;
+    }
+}
+/* End About*/
+
+/* Start Offer*/
+.offer {
+    margin-top: 80px;
+    padding: 120px 0;
+    background-image: linear-gradient(rgba(51,33,29,0.9), rgba(51,33,29,0.9)) , url(../images/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    &::before {
+        @include overlay(top);
+    } 
+    &::after {
+        @include overlay("bottom")
+    }
+}
+/* End Offer*/
+
+/*Start Menu*/
+#menu {
+    padding-top: $section-padding;
+    .item {
+        @include breakpoints(xsmall-mobile) {
+            text-align: center;
+        }
+        .image {
+            width: 150px;
+            position: relative;
+            @include breakpoints(xsmall-mobile) {
+                margin: 0 auto 15px;
+            }
+            .price {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: $main-color;
+                color:  $alt-color;
+                font-weight: 500;
+                position: absolute;
+                right: -5px;
+                top: -5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: .3s;
+            }
+            img {
+                max-width: 100%;
+            }
+        }
+        &:hover .price {
+            // transform-origin: bottom;
+            transform: translateY(-2px);
+        }
+    }
+}
+/*End Menu*/
+
+/* Start Reservation*/
+#book {
+    background-image: linear-gradient(rgba(51, 33, 29, 0.9), rgba(51, 33, 29, 0.9)), url(../images/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    &::before {
+        @include overlay(top);
+    }
+    &::after {
+        @include overlay(bottom);
+    }
+    .row {
+        div:first-child {
+            li {
+                @include breakpoints(xsmall-mobile) {
+                    font-size: .8rem !important;
+                }
+            }
+        }
+        & div:nth-child(2) {
+            height: 100%;
+            background: rgba(51, 33, 29, .8);
+            form {
+                input,
+                select {
+                    color: #555;
+                    margin-bottom: 1rem;
+                    background-color: transparent;
+                }
+                select {
+                    cursor: pointer;
+                }
+                .input-group{
+                    position: relative;
+                    input:focus {
+                        box-shadow: 0px 2px 7px -2px $main-color;
+                    }
+                    span {
+                        position: absolute;
+                        top: .5rem;
+                        left: 1.5rem;
+                        transition: .3s;
+                        z-index: 56;
+                    }
+                    .active-input{
+                        background-color: rgba(51, 33, 29, .8);
+                        transform: scale(0.9) translate(-33%, -93%);
+                    }
+                }
+            }
+        }
+    }    
+}
+/* End Reservation*/
+
+/* Start testimonials*/
+#testimonials {
+    padding-top: $section-padding;
+    .testi-holder {
+        overflow-x: hidden;
+    }
+    .testi-container {
+        // perspective: 500px;
+        .box {
+            flex: 1 0 calc(100% / 3);
+            @include breakpoints(mobile) {
+                flex-basis: 100%;
+            }
+            @include breakpoints(small) {
+                flex-basis: calc(100% / 2);
+            }
+            img {
+                width: 25px;
+            }
+        }
+    }
+    .testi-foot {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button {
+            transition: .3s;
+            &.next-testi-btn:hover {
+                transform: translateX(2px);
+            }
+            &.prev-testi-btn:hover {
+                transform: translateX(-2px);
+            }
+        }
+        ul {
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0; 
+            li {
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background-color: $main-color;
+                transition: .3s;
+                &.active {
+                    width: 30px;
+                    border-radius: 10px;
+                    background-color: $alt-color;
+                }
+            }
+        }
+    }
+}
+/* End testimonials*/

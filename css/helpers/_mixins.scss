@@ -1,0 +1,58 @@
+//Media Query
+@mixin breakpoints($point) {
+    @if $point == xxsmall-mobile {
+        @media (max-width: 350px) {
+            @content;
+        }
+    }
+    @else if $point == xsmall-mobile {
+        @media (max-width: 567px) {
+            @content;
+        }
+    }
+    @else if $point == mobile {
+        @media (max-width: 767px) {
+            @content;
+        }
+    }
+    @else if $point == small {
+        @media (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    }
+    @else if $point == medium {
+        @media (min-width: 992px) and (max-width: 1199px) {
+            @content;
+        }
+    }
+    @else if $point == large {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+}
+
+//Over Lay Top
+@mixin overlay($pos) {
+    @if $pos == "top" {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 15px;
+        top: -1px;
+        left: 0;
+        background-image: url(../../images/overlay-top.png);
+        z-index: 1;
+    } @else if $pos == "bottom" {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 15px;
+        bottom: -1px;
+        left: 0;
+        background-image: url(../../images/overlay-bottom.png);
+        z-index: 1;
+    } @else {
+        @error "This is invalid argument -- 'top' and 'bottom' only";
+    }
+}
