@@ -202,7 +202,6 @@ moveToPrevTestimonials = () => {
          //Move to the Previous
          indx--;
 
-         //Move to the next
          testContainer.style.transition ="all 1s cubic-bezier(0.39, 0.58, 0.57, 1) 0s";
          testContainer.style.transform = `translateX(${-100 * indx}%)`;
          //Move active class to the next indicator
@@ -214,7 +213,7 @@ moveToPrevTestimonials = () => {
          else
             document.querySelector(`#testimonials .testi-indicators li:nth-child(${indx})`).classList.add("active");
       } else if (mediumScreen) {
-         //Move to the next
+         //Move to the previous
          swap--;
          indx -= 2;
 
@@ -233,10 +232,9 @@ moveToPrevTestimonials = () => {
          swap--;
          indx -= 3;
 
-         //Move to the next
          testContainer.style.transition ="all 1s cubic-bezier(0.39, 0.58, 0.57, 1) 0s";
          testContainer.style.transform = `translateX(${-100 * swap}%)`;
-         //Move active class to the next indicator
+         //Move active class to the previous indicator
          document.querySelector("#testimonials .testi-indicators .active").classList.remove("active");
          if (swap == 5)
             document.querySelector(`#testimonials .testi-indicators li`).classList.add("active");
@@ -247,16 +245,9 @@ moveToPrevTestimonials = () => {
 
          //Move active class to the Previous indicator
          document.querySelector("#testimonials .testi-indicators .active").classList.remove("active");
-         // if (indx == 0) {
-         //    testContainer.style.transition = "all 1s cubic-bezier(0.39, 0.58, 0.57, 1) 0s";
-         //    testContainer.style.transform = `translateX(0%)`;
-         //    //Active the last indicator because we reached to the beginning(x previous last cloned nodes)
-         //    document.querySelector(`#testimonials .testi-indicators li:last-child`).classList.add("active");
-         //    return;
-         // } else {
-            testContainer.style.transition = "all 1s cubic-bezier(0.39, 0.58, 0.57, 1) 0s";
-            testContainer.style.transform = `translateX(${-100 * swap}%)`;
-         // }
+         testContainer.style.transition = "all 1s cubic-bezier(0.39, 0.58, 0.57, 1) 0s";
+         testContainer.style.transform = `translateX(${-100 * swap}%)`;
+
          if (swap == 4)
             //Active the first indicator because we reached to the end(first cloned nodes)
             document.querySelector(`#testimonials .testi-indicators li`).classList.add("active");
